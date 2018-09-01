@@ -26,7 +26,7 @@ namespace TestEF.Models
             
         }
         public DbSet<Student> Student { get; set; }
-        public object Students { get; internal set; }
+        public DbSet<ImageM> Image { get; set; }
 
         public static ApplicationDbContext Create()
         {
