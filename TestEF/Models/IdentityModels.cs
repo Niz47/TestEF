@@ -23,7 +23,10 @@ namespace TestEF.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            
         }
+        public DbSet<Student> Student { get; set; }
+        public object Students { get; internal set; }
 
         public static ApplicationDbContext Create()
         {
