@@ -32,5 +32,26 @@ namespace TestEF.Models
         {
             return new ApplicationDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //Rename AspNetUsers Table to Users and its field Id to UserId
+            modelBuilder.Entity<ApplicationUser>()
+                    .ToTable("Users").Property(p => p.Id).HasColumnName("UserId");
+
+            //Rename AspNetUserRoles table to UserRoles
+            modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");
+
+            //Rename AspNetUserLogins table to UserLogins
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
+
+            //Rename AspNetUserClaims table to UserClaims and its field Id to UserClaimId
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims").Property(p => p.Id).HasColumnName("UserClaimId");
+
+            //Rename AspNetRoles table to Roles and its field Id to RoleId
+            modelBuilder.Entity<IdentityRole>().ToTable("Roles").Property(p => p.Id).HasColumnName("RoleId");
+        }
     }
 }
