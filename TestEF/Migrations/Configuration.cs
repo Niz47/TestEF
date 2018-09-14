@@ -18,7 +18,7 @@ namespace TestEF.Migrations
         protected override void Seed(TestEF.Models.ApplicationDbContext context)
         {
             var dbInit = new DbInitializer();
-            // dbInit.Seed(context);
+            dbInit.Seed(context);
 
 
             // context.Student.Add(new Student { Name = "Zin Mar", Age = 26 });
