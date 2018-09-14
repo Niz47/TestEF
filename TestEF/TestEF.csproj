@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201809121600036_role_user.Designer.cs">
       <DependentUpon>201809121600036_role_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809141840194_add_fullname_gender_to_appuser.cs" />
+    <Compile Include="Migrations\201809141840194_add_fullname_gender_to_appuser.Designer.cs">
+      <DependentUpon>201809141840194_add_fullname_gender_to_appuser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -303,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809121600036_role_user.resx">
       <DependentUpon>201809121600036_role_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809141840194_add_fullname_gender_to_appuser.resx">
+      <DependentUpon>201809141840194_add_fullname_gender_to_appuser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
