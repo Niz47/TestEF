@@ -34,6 +34,7 @@ namespace TestEF.Models
         }
         public DbSet<Student> Student { get; set; }
         public DbSet<ImageM> Image { get; set; }
+        public DbSet<Locations> Locations { get; set; }
 
         public static ApplicationDbContext Create()
         {
