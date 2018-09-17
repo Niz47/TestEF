@@ -33,7 +33,7 @@ namespace TestEF.Controllers
                 {
                     string _FileName = Path.GetFileName(file.FileName);
                     string _path = Path.Combine(Server.MapPath("~/Upload"), _FileName);
-                    db.Image.Add(new ImageM { ImageName = Path.GetFileNameWithoutExtension(file.FileName), ImagePath = _path });
+                    db.Image.Add(new ImageM { ImageName = Path.GetFileNameWithoutExtension(file.FileName), ImagePath = _FileName });
                     db.SaveChanges();
                     file.SaveAs(_path);
                 }
@@ -45,6 +45,12 @@ namespace TestEF.Controllers
                 ViewBag.Message = "File upload failed!!";
                 return View();
             }
+        }
+
+        [HttpGet]
+        public ActionResult ShowImage()
+        {
+            return View(db.Image.ToList());
         }
     }
 }

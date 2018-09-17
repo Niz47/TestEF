@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201809160028325_employee.Designer.cs">
       <DependentUpon>201809160028325_employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809160816193_add-photo-employee.cs" />
+    <Compile Include="Migrations\201809160816193_add-photo-employee.Designer.cs">
+      <DependentUpon>201809160816193_add-photo-employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -475,6 +479,7 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Upload\ShowImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809011244528_TestDB-v1.resx">
@@ -497,6 +502,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809160028325_employee.resx">
       <DependentUpon>201809160028325_employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809160816193_add-photo-employee.resx">
+      <DependentUpon>201809160816193_add-photo-employee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
