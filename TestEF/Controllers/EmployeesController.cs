@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -46,13 +47,15 @@ namespace TestEF.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmpId,EmpName,Phone,Email,Address")] Employee employee)
+        public ActionResult Create([Bind(Include = "EmpId,EmpName,Phone,Email,Address")] Employee employee, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
-                db.Employee.Add(employee);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    string Filepath = Path.Combine(Server.MapPath("~/Upload"), Path.GetFileName(file.FileName));
+                    file.SaveAs(Filepath);
+                    employee.Photo = Filepath;
+                    db.Employee.Add(employee);
+                    db.SaveChanges();
             }
 
             return View(employee);

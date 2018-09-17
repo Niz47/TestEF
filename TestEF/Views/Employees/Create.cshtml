@@ -7,7 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create",
+      "Employees",
+      FormMethod.Post,
+      new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -40,6 +43,14 @@
         </div>
 
         <div class="form-group">
+            @*@Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                <input type="file" name="file" id="file" />
+                <div class="text-info">@ViewBag.Message</div>
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
@@ -64,17 +75,17 @@
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6R43G6CzR4NDLX54zLdmB-gLLev3n_n0&sensor=false&libraries=places"></script>
     <script type="text/javascript">
 
-            google.maps.event.addDomListener(window, 'load', function () {
-                var options = {
-                    types: ['(cities)'],
-                    componentRestrictions: { country: "in" }
-                };
+        google.maps.event.addDomListener(window, 'load', function () {
+            var options = {
+                types: ['(cities)'],
+                componentRestrictions: { country: "Bur" }
+            };
 
-                var input = document.getElementById('Address');
-                var places = new google.maps.places.Autocomplete(input, options);
+            var input = document.getElementById('Address');
+            var places = new google.maps.places.Autocomplete(input, options);
 
 
-            });
+        });
     </script>
 
 }

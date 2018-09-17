@@ -13,6 +13,8 @@ namespace TestEF.Models
         public string EmpName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        [Display(Name= "Profile Picture")]
+        public string Photo { get; set; }
         public string Address { get; set; }
     }
 }
