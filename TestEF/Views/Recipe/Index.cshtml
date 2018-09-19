@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TestEF.Models.Recipe>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@Html.ActionLink("All Ingredients", "Details", "Recipe")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recipe_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Upload/@item.Image" style="width:50px;" alt="@item.recipe_name"/>
+            </td>
+            <td>
+                <a href="/Category/GetItems/@item.recipe_id">@item.recipe_name</a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.recipe_id }) |
+                @Html.ActionLink("RecipeDetails", "RecipeDetails", new { id = item.recipe_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.recipe_id })
+            </td>
+        </tr>
+    }
+
+</table>

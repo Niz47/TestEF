@@ -1,0 +1,49 @@
+﻿@model TestEF.ViewModels.RecipeIngredientInstructionVM
+@{
+    ViewBag.Title = "RecipeDetails";
+}
+
+<h2>@Model.recipe_name - Detail</h2>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Image
+        </dt>
+
+        <dd>
+            <img src="~/Upload/@Model.Image" style="width:100px;" alt="@Model.recipe_name" />
+        </dd>
+    </dl>
+</div>
+
+<hr />
+<h3>Ingredients</h3>
+<hr />
+<table>
+    @foreach (var item in Model.ingredients)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.ingredient_name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ingredient_amount)
+            </td>
+        </tr>
+    }
+</table>
+
+<hr />
+<h3>Instructions</h3>
+<hr />
+<table>
+    @foreach (var item in Model.instructions)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.instruction_detail)
+            </td>
+        </tr>
+    }
+</table>

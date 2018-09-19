@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TestEF.Models.Ingredient>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@ViewBag.RecipeName</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Recipes
+        </th>
+        <th>
+            Ingredient Name 
+        </th>
+        <th>
+            Amount
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.recipe.recipe_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ingredient_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ingredient_amount)
+            </td>
+        </tr>
+    }
+
+</table>
