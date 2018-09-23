@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Recipe</h4>
         <hr />
@@ -31,6 +31,19 @@
             </div>
         </div>
 
+        <table border="0" cellspacing="2">
+            <tr>
+                <td align="right">Ingredients</td>
+                <td>
+                    <input type="button" id="add" value="Add" onclick="AddTables();" />
+                    <input type="button" id="del" value="Del" />
+                </td>
+            </tr>
+            <tr>
+                <td style="height:3px" colspan="2"></td>
+            </tr>
+        </table>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -45,4 +58,28 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $('#add').click(function () {
+            var table = $(this).closest('table');
+            console.log(table.find('input:text').length);
+            //if (table.find('input:text').length < 7) {
+                var x = $(this).closest('tr').nextAll('tr');
+                $.each(x, function (i, val) {
+                    val.remove();
+                });
+                table.append('<tr><td style="width:200px;" align="right">Ingredient Name <td> <input type="text" id="IngredientName[]" value="" /> </td><td style="width:200px;" align="right">Amount<td> <input type="text" id="Amount[]" value="" /> </td></tr>');
+                $.each(x, function (i, val) {
+                    table.append(val);
+                });
+            //}
+        });
+        $('#del').click(function () {
+            var table = $(this).closest('table');
+            if (table.find('input:text').length > 1) {
+                table.find('input:text').last().closest('tr').remove();
+            }
+        });
+    </script>
 }

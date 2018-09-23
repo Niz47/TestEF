@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TestEF.Models.grocery_list>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>Create</h2>
+
+
+<form name="toDoList">
+    <input type="text" name="ListItem" />
+</form>
+
+<div id="Add" class="btn">Add</div>
+
+<br />
+<ol>
+    
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.DisplayFor(modelItem => item.grocery_item)
+        </li>
+    }
+</ol>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(
+            function () {
+                $('#Add').click(
+                    function () {
+                        var id = 1; // from response
+                        var toAdd = $('input[name=ListItem]').val();
+                        $('ol').append('<li id='+id+'>' + toAdd + '</li>');
+                    });
+
+                $("input[name=ListItem]").keyup(function (event) {
+                    if (event.keyCode == 13) {
+                        $("#Add").click();
+                    }
+                });
+
+                $(document).on('dblclick', 'li', function () {
+                    $(this).toggleClass('strike').fadeOut('slow');
+                });
+
+                $('input').focus(function () {
+                    $(this).val('');
+                });
+
+                $('ol').sortable();
+            }
+        );
+    </script>
+}
