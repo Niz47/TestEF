@@ -193,6 +193,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\GroceryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -243,9 +244,14 @@
     <Compile Include="Migrations\201809181340488_instruction.Designer.cs">
       <DependentUpon>201809181340488_instruction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809221621219_grocery_list.cs" />
+    <Compile Include="Migrations\201809221621219_grocery_list.Designer.cs">
+      <DependentUpon>201809221621219_grocery_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\grocery_list.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Instruction.cs" />
     <Compile Include="Models\Locations.cs" />
@@ -499,6 +505,11 @@
     <Content Include="Views\Recipe\Edit.cshtml" />
     <Content Include="Views\Recipe\Index.cshtml" />
     <Content Include="Views\Recipe\RecipeDetails.cshtml" />
+    <Content Include="Views\Grocery\Create.cshtml" />
+    <Content Include="Views\Grocery\Delete.cshtml" />
+    <Content Include="Views\Grocery\Details.cshtml" />
+    <Content Include="Views\Grocery\Edit.cshtml" />
+    <Content Include="Views\Grocery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809011244528_TestDB-v1.resx">
@@ -530,6 +541,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809181340488_instruction.resx">
       <DependentUpon>201809181340488_instruction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809221621219_grocery_list.resx">
+      <DependentUpon>201809221621219_grocery_list.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

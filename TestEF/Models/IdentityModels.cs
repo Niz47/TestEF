@@ -41,6 +41,7 @@ namespace TestEF.Models
         public DbSet<Recipe> Recipe { get; set; }
         public DbSet<Ingredient> Ingredient { get; set; }
         public DbSet<Instruction> Instruction { get; set; }
+        public DbSet<grocery_list> grocery_list { get; set; }
 
         public static ApplicationDbContext Create()
         {
